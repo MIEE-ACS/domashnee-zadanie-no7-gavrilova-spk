@@ -97,7 +97,9 @@ namespace Snake
                     //мы проиграли
                     moveTimer.Stop();
                     tbGameOver.Visibility = Visibility.Visible;
-                    txt_error.Text = "self";
+                    button1.Visibility = Visibility.Visible;
+                    txt_error.Visibility = Visibility.Visible;
+                    txt_error.Text = "Змеям не зачем есть себя";
                     return;
                 }
             }
@@ -108,7 +110,9 @@ namespace Snake
                 //мы проиграли
                 moveTimer.Stop();
                 tbGameOver.Visibility = Visibility.Visible;
-                txt_error.Text = "wall";
+                txt_error.Visibility = Visibility.Visible;
+                button1.Visibility = Visibility.Visible;
+                txt_error.Text = "Осторожнее со стенами";
                 return;
             }
 
@@ -144,7 +148,9 @@ namespace Snake
                     //мы проиграли
                     moveTimer.Stop();
                     tbGameOver.Visibility = Visibility.Visible;
-                    txt_error.Text = "box?";
+                    button1.Visibility = Visibility.Visible;
+                    txt_error.Visibility = Visibility.Visible;
+                    txt_error.Text = "Коробки не съедобны";
                     return;
                 }
             }
@@ -186,12 +192,19 @@ namespace Snake
                 case Key.Right:
                         head.direction = Head.Direction.RIGHT;
                     break;
+                case Key.Enter:
+                    moveTimer.Stop();
+                    btm_start.Visibility = Visibility.Visible;
+                    btm_pause.Visibility = Visibility.Hidden;
+                    txt_pause.Visibility = Visibility.Visible;
+                    break;
             }
         }
 
         // Обработчик нажатия кнопки "Start"
         private void button1_Click(object sender, RoutedEventArgs e)
         {
+            button1.Visibility = Visibility.Hidden;
             // обнуляем счет
             score = 0;
             // обнуляем змею
@@ -202,7 +215,9 @@ namespace Snake
             canvas1.Children.Clear();
             // скрываем надпись "Game Over"
             tbGameOver.Visibility = Visibility.Hidden;
-            
+            txt_error.Visibility = Visibility.Hidden;
+            btm_pause.Visibility = Visibility.Visible;
+
             // добавляем поле на канвас
             canvas1.Children.Add(field.image);
             // создаем новое яблоко и добавлем его
@@ -434,13 +449,14 @@ namespace Snake
             moveTimer.Stop();
             btm_start.Visibility = Visibility.Visible;
             btm_pause.Visibility = Visibility.Hidden;
-
+            txt_pause.Visibility = Visibility.Visible;            
         }
 
         private void Btm_start_Click(object sender, RoutedEventArgs e)
         {
             btm_pause.Visibility = Visibility.Visible;
             btm_start.Visibility = Visibility.Hidden;
+            txt_pause.Visibility = Visibility.Hidden;
             moveTimer.Start();
             UpdateField();
         }
