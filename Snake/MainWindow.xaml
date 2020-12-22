@@ -3,16 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="681.469" Width="920.655" KeyDown="Window_KeyDown">
     <Grid Visibility="Visible">
-        <Button Content="Start" Height="23" HorizontalAlignment="Left" Margin="12,12,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
 
-        <Label Content="Score" Height="49" HorizontalAlignment="Left" Margin="718,0,0,0" Name="label1" VerticalAlignment="Top" FontFamily="Showcard Gothic" FontSize="30" Width="124" />
-        <Label Content="0" Height="50" HorizontalAlignment="Left" Margin="718,54,0,0" Name="lblScore" VerticalAlignment="Top" Width="158" FontFamily="Showcard Gothic" FontSize="30" />
-        <Canvas Height="600" HorizontalAlignment="Left" Margin="111,12,0,0" Name="canvas1" VerticalAlignment="Top" Width="600">
+        <Label Content="Score" Height="49" HorizontalAlignment="Left" Margin="718,0,0,0" x:Name="label1" VerticalAlignment="Top" FontFamily="Showcard Gothic" FontSize="30" Width="124" />
+        <Label Content="0" Height="50" HorizontalAlignment="Left" Margin="718,54,0,0" x:Name="lblScore" VerticalAlignment="Top" Width="158" FontFamily="Showcard Gothic" FontSize="30" />
+        <Canvas Height="600" HorizontalAlignment="Left" Margin="111,12,0,0" x:Name="canvas1" VerticalAlignment="Top" Width="600">
             <Image Height="600" Width="600" Source="Resources/logo.png"/>
 
         </Canvas>
-        <TextBlock Height="300" Name="tbGameOver" Text="   Game Over!" Width="300" FontFamily="Levenim MT" FontSize="36" Background="#79483232" Foreground="#FFFC0000" Visibility="Hidden" Margin="111,12,164,12" />
+        <TextBlock x:Name="tbGameOver" Text="   Game Over!" FontFamily="Levenim MT" FontSize="36" Background="#79483232" Foreground="#FFFC0000" Margin="281,176,361.4,394" Visibility="Hidden" />
         <ProgressBar HorizontalAlignment="Left" Height="24" Margin="111,617,0,0" VerticalAlignment="Top" Width="498" Value="60"/>
         <Label x:Name="label" Content="х 4" HorizontalAlignment="Left" Margin="614,610,0,0" VerticalAlignment="Top" Width="97" FontFamily="LCDMono2" FontSize="30"/>
+        <TextBlock x:Name="txt_error" HorizontalAlignment="Left" Margin="318,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="192" Foreground="Red" Visibility="Hidden"/>
+        <Button x:Name="btm_pause" Content="Pause" HorizontalAlignment="Left" Margin="20,194,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Visibility="Hidden"/>
+        <Button x:Name="btm_start" Content="Resume" HorizontalAlignment="Left" Margin="203,276,0,0" VerticalAlignment="Top" Width="425" Click="Btm_start_Click" Height="161" FontSize="48" Visibility="Hidden">
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0.5"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Start" Height="161" HorizontalAlignment="Left" Margin="203,276,0,0" x:Name="button1" VerticalAlignment="Top" Width="425" Click="button1_Click" FontSize="48" >
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0.49"/>
+            </Button.Background>
+        </Button>
+        <TextBlock x:Name="txt_pause" TextWrapping="Wrap" Height="181" Width="425" FontSize="48" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center" Foreground="#FF001FFF" FontFamily="Stencil" Margin="203,64,0,0" Visibility="Hidden">
+            <TextBlock.Background>
+                <SolidColorBrush Color="Black" Opacity="0.25"/>
+            </TextBlock.Background><Run/><LineBreak/><Run Text="Pause"/></TextBlock>
     </Grid>
 </Window>
